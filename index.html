@@ -23,6 +23,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
         }
 
         .progress-container {
@@ -50,6 +51,7 @@
             padding: 40px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(10px);
+            margin-bottom: 20px;
         }
 
         #intro-page, #question-page, #result-page {
@@ -154,7 +156,6 @@
             text-align: center;
         }
 
-        /* 애니메이션 */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -172,7 +173,14 @@
             color: #764ba2;
         }
 
-        /* 반응형 디자인 */
+        .ad-container {
+            margin-top: 20px;
+            width: 90%;
+            max-width: 800px;
+            display: flex;
+            justify-content: center;
+        }
+
         @media (max-width: 600px) {
             .container {
                 padding: 20px;
@@ -224,17 +232,15 @@
             </div>
         </div>
     </div>
-	
-	<div class = "ad-container">
-		<ins class="kakao_ad_area" style="display:none;"
-data-ad-unit = "DAN-BcQOlLJR4r70G8ut"
-data-ad-width = "320"
-data-ad-height = "100"></ins>
-<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
-		
-	</div>
-</div>
-	
+    
+    <div class="ad-container">
+        <ins class="kakao_ad_area" style="display:none;"
+            data-ad-unit="DAN-BcQOlLJR4r70G8ut"
+            data-ad-width="320"
+            data-ad-height="100">
+        </ins>
+        <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+    </div>
 
     <script>
         const questions = [
