@@ -348,4 +348,159 @@
       매일이 선물 같았어.<br><br>
       네가 웃을 때 내 세상이 밝아지고,<br>
       네 목소리를 들으면 하루가 따뜻해지는 걸 느껴.<br><br>
-      앞으로도 100일, 200일, 그
+      앞으로도 100일, 200일, 그 이상까지<br>
+      네 손을 꼭 잡고 걸어가고 싶어. 💗
+    </div>
+  </section>
+
+  <div class="divider">· · ♡ · ·</div>
+
+  <!-- TIMELINE -->
+  <section class="section">
+    <h2 class="section-title">📅 우리의 추억</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">D+1 · 첫 번째 날</div>
+        <div class="timeline-text">처음으로 "우리"가 된 날 — 설레고 떨렸던 그 순간을 아직도 기억해.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">D+7 · 첫 번째 데이트</div>
+        <div class="timeline-text">함께 걸었던 그 길, 나눴던 이야기들이 아직도 선명해.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">D+30 · 한 달 기념</div>
+        <div class="timeline-text">한 달이 쏜살같이 지나갔어. 네 덕분에 매일이 행복했어.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date" id="timeline-last-date">D+50 · 오늘</div>
+        <div class="timeline-text" id="timeline-last-text">50일을 함께한 우리. 앞으로가 더 기대되는 하루야. ✨</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider">· · ♡ · ·</div>
+
+  <!-- STATS -->
+  <section class="section">
+    <h2 class="section-title">💫 우리가 함께한 시간</h2>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-number" id="stat-days">0</span>
+        <span class="stat-label">함께한 날</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" id="stat-hours">0</span>
+        <span class="stat-label">소중한 시간 (시)</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">∞</span>
+        <span class="stat-label">네가 준 미소</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">1</span>
+        <span class="stat-label">나의 유일한 사람</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider">· · ♡ · ·</div>
+
+  <!-- PROMISES -->
+  <section class="section">
+    <h2 class="section-title">🤝 나의 약속</h2>
+    <ul class="promise-list">
+      <li class="promise-item"><span class="promise-icon">♡</span> 언제나 네 편이 되어줄게.</li>
+      <li class="promise-item"><span class="promise-icon">♡</span> 힘든 날엔 가장 먼저 달려갈게.</li>
+      <li class="promise-item"><span class="promise-icon">♡</span> 매일 표현하는 걸 잊지 않을게.</li>
+      <li class="promise-item"><span class="promise-icon">♡</span> 네가 웃을 수 있도록 최선을 다할게.</li>
+      <li class="promise-item"><span class="promise-icon">♡</span> 100일, 1년, 평생 함께하고 싶어.</li>
+    </ul>
+  </section>
+
+  <!-- CLOSING -->
+  <div class="closing">
+    <span class="closing-heart">❤️</span>
+    <div class="closing-text">사랑해, 정말 많이. 💗</div>
+    <div class="closing-name">— 항상 너만 바라보는 사람으로부터</div>
+  </div>
+
+  <script>
+    // ===== STARS =====
+    const starsEl = document.getElementById('stars');
+    for (let i = 0; i < 150; i++) {
+      const s = document.createElement('div');
+      s.className = 'star';
+      const size = 1 + Math.random() * 2;
+      s.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;width:${size}px;height:${size}px;--dur:${2+Math.random()*4}s;--op:${0.2+Math.random()*0.7};`;
+      starsEl.appendChild(s);
+    }
+
+    // ===== PETALS =====
+    const petalColors = ['#f9c5d1','#f0a8bf','#e890ae','#fce4ec','#f8bbd0'];
+    const petalsEl = document.getElementById('petals');
+    for (let i = 0; i < 20; i++) {
+      const p = document.createElement('div');
+      p.className = 'petal';
+      const color = petalColors[Math.floor(Math.random() * petalColors.length)];
+      p.style.cssText = `left:${Math.random()*100}%;background:${color};animation-duration:${6+Math.random()*10}s;animation-delay:-${Math.random()*15}s;transform:rotate(${Math.random()*360}deg);`;
+      petalsEl.appendChild(p);
+    }
+
+    // ===== 날짜 계산 (2025년 2월 26일부터) =====
+    const startDate = new Date(2025, 1, 26); // 월은 0부터 시작 → 1 = 2월
+    const today     = new Date();
+    today.setHours(0, 0, 0, 0);
+    const diffDays  = Math.floor((today - startDate) / (1000 * 60 * 60 * 24)) + 1;
+
+    const fmt = d =>
+      `${d.getFullYear()}. ${String(d.getMonth()+1).padStart(2,'0')}. ${String(d.getDate()).padStart(2,'0')}`;
+
+    // 헤더 날짜
+    document.getElementById('hero-date').textContent = `${fmt(startDate)} — ${fmt(today)}`;
+
+    // 부제목
+    document.getElementById('hero-subtitle').innerHTML =
+      `네가 내 곁에 있어온<br>소중한 <span style="color:#f9c5d1;font-weight:600;">${diffDays}일</span>`;
+
+    // 편지 속 일수
+    document.getElementById('letter-days').textContent = diffDays;
+
+    // 타임라인 마지막 항목
+    document.getElementById('timeline-last-date').textContent = `D+${diffDays} · 오늘`;
+    document.getElementById('timeline-last-text').textContent = `${diffDays}일을 함께한 우리. 앞으로가 더 기대되는 하루야. ✨`;
+
+    // 통계
+    document.getElementById('stat-days').textContent = diffDays;
+    document.getElementById('stat-hours').textContent = (diffDays * 24).toLocaleString();
+
+    // 탭 타이틀
+    document.title = `우리의 ${diffDays}일 🌸`;
+
+    // ===== 카운터 애니메이션 =====
+    let count = 0;
+    const counterEl = document.getElementById('counter');
+    const tick = setInterval(() => {
+      count += Math.ceil(diffDays / 40);
+      if (count >= diffDays) { count = diffDays; clearInterval(tick); }
+      counterEl.textContent = count;
+    }, 30);
+
+    // ===== 스크롤 페이드인 =====
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.section, .closing').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
