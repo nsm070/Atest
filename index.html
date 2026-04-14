@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>우리의 50일 🌸</title>
+  <title>우리의 48일 🌸</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600&family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
@@ -17,7 +17,6 @@
       overflow-x: hidden;
     }
 
-    /* ===== STARS ===== */
     #stars {
       position: fixed;
       top: 0; left: 0;
@@ -27,7 +26,6 @@
     }
     .star {
       position: absolute;
-      width: 2px; height: 2px;
       background: #fff;
       border-radius: 50%;
       animation: twinkle var(--dur, 3s) infinite alternate;
@@ -35,10 +33,9 @@
     }
     @keyframes twinkle {
       from { opacity: 0.1; }
-      to { opacity: 0.9; }
+      to   { opacity: 0.9; }
     }
 
-    /* ===== PETALS ===== */
     .petal {
       position: fixed;
       width: 8px; height: 12px;
@@ -55,7 +52,6 @@
       100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
     }
 
-    /* ===== HERO ===== */
     .hero {
       position: relative;
       z-index: 2;
@@ -80,8 +76,8 @@
       animation: pulse-glow 3s ease-in-out infinite;
     }
     @keyframes pulse-glow {
-      0%, 100% { filter: drop-shadow(0 0 30px rgba(233, 140, 170, 0.3)); }
-      50%       { filter: drop-shadow(0 0 60px rgba(233, 140, 170, 0.7)); }
+      0%, 100% { filter: drop-shadow(0 0 30px rgba(233,140,170,0.3)); }
+      50%       { filter: drop-shadow(0 0 60px rgba(233,140,170,0.7)); }
     }
 
     .days-label {
@@ -123,7 +119,6 @@
       50%       { transform: translateX(-50%) translateY(8px); }
     }
 
-    /* ===== DIVIDER ===== */
     .divider {
       position: relative;
       z-index: 2;
@@ -134,7 +129,6 @@
       letter-spacing: 0.5em;
     }
 
-    /* ===== SECTIONS ===== */
     .section {
       position: relative;
       z-index: 2;
@@ -153,10 +147,9 @@
       letter-spacing: 0.15em;
     }
 
-    /* ===== LETTER ===== */
     .letter-card {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(233, 160, 184, 0.2);
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(233,160,184,0.2);
       border-radius: 16px;
       padding: 2.5rem;
       font-family: 'Noto Serif KR', serif;
@@ -172,12 +165,11 @@
       position: absolute;
       top: 1rem; left: 1.5rem;
       font-size: 80px;
-      color: rgba(233, 160, 184, 0.1);
+      color: rgba(233,160,184,0.1);
       font-family: Georgia, serif;
       line-height: 1;
     }
 
-    /* ===== TIMELINE ===== */
     .timeline {
       position: relative;
       padding-left: 2rem;
@@ -197,12 +189,11 @@
     .timeline-item::before {
       content: '';
       position: absolute;
-      left: -2.35rem;
-      top: 6px;
+      left: -2.35rem; top: 6px;
       width: 8px; height: 8px;
       border-radius: 50%;
       background: #e8a0b8;
-      box-shadow: 0 0 10px rgba(232, 160, 184, 0.6);
+      box-shadow: 0 0 10px rgba(232,160,184,0.6);
     }
     .timeline-date {
       font-size: 12px;
@@ -218,23 +209,22 @@
       font-weight: 300;
     }
 
-    /* ===== STATS ===== */
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 1rem;
     }
     .stat-card {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(233, 160, 184, 0.15);
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(233,160,184,0.15);
       border-radius: 12px;
       padding: 1.5rem;
       text-align: center;
       transition: border-color 0.3s, background 0.3s;
     }
     .stat-card:hover {
-      border-color: rgba(233, 160, 184, 0.4);
-      background: rgba(233, 160, 184, 0.05);
+      border-color: rgba(233,160,184,0.4);
+      background: rgba(233,160,184,0.05);
     }
     .stat-number {
       font-family: 'Noto Serif KR', serif;
@@ -251,7 +241,6 @@
       display: block;
     }
 
-    /* ===== PROMISES ===== */
     .promise-list {
       list-style: none;
       display: flex;
@@ -263,8 +252,8 @@
       align-items: flex-start;
       gap: 1rem;
       padding: 1rem 1.5rem;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(233, 160, 184, 0.1);
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(233,160,184,0.1);
       border-radius: 10px;
       font-size: 14px;
       color: #f0e4ec;
@@ -272,14 +261,8 @@
       font-family: 'Noto Serif KR', serif;
       font-weight: 300;
     }
-    .promise-icon {
-      color: #e8a0b8;
-      font-size: 16px;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
+    .promise-icon { color: #e8a0b8; font-size: 16px; flex-shrink: 0; margin-top: 2px; }
 
-    /* ===== CLOSING ===== */
     .closing {
       position: relative;
       z-index: 2;
@@ -294,10 +277,10 @@
     }
     @keyframes heartbeat {
       0%, 100% { transform: scale(1); }
-      14%       { transform: scale(1.2); }
-      28%       { transform: scale(1); }
-      42%       { transform: scale(1.15); }
-      56%       { transform: scale(1); }
+      14%  { transform: scale(1.2); }
+      28%  { transform: scale(1); }
+      42%  { transform: scale(1.15); }
+      56%  { transform: scale(1); }
     }
     .closing-text {
       font-family: 'Noto Serif KR', serif;
@@ -313,9 +296,7 @@
       letter-spacing: 0.3em;
     }
 
-    /* ===== RESPONSIVE ===== */
     @media (max-width: 480px) {
-      .stats-grid { grid-template-columns: 1fr 1fr; }
       .letter-card { padding: 2rem 1.5rem; }
     }
   </style>
@@ -325,25 +306,21 @@
   <div id="stars"></div>
   <div id="petals"></div>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="days-big" id="counter">0</div>
     <div class="days-label">D A Y S</div>
-    <div class="hero-subtitle" id="hero-subtitle">
-      네가 내 곁에 있어온<br>소중한 날들
-    </div>
+    <div class="hero-subtitle" id="hero-subtitle"></div>
     <div class="hero-date" id="hero-date"></div>
     <div class="scroll-hint">↓ scroll</div>
   </section>
 
   <div class="divider">· · ♡ · ·</div>
 
-  <!-- LETTER -->
   <section class="section">
     <h2 class="section-title">✉ 나의 편지</h2>
-    <div class="letter-card" id="letter-body">
+    <div class="letter-card">
       나에게 이 세상에서 가장 특별한 사람에게,<br><br>
-      우리가 함께한 지 벌써 <span id="letter-days">50</span>일이 지났어.<br>
+      우리가 함께한 지 벌써 <span id="letter-days"></span>일이 지났어.<br>
       처음 네 손을 잡던 그 순간부터,<br>
       매일이 선물 같았어.<br><br>
       네가 웃을 때 내 세상이 밝아지고,<br>
@@ -355,7 +332,6 @@
 
   <div class="divider">· · ♡ · ·</div>
 
-  <!-- TIMELINE -->
   <section class="section">
     <h2 class="section-title">📅 우리의 추억</h2>
     <div class="timeline">
@@ -372,15 +348,14 @@
         <div class="timeline-text">한 달이 쏜살같이 지나갔어. 네 덕분에 매일이 행복했어.</div>
       </div>
       <div class="timeline-item">
-        <div class="timeline-date" id="timeline-last-date">D+50 · 오늘</div>
-        <div class="timeline-text" id="timeline-last-text">50일을 함께한 우리. 앞으로가 더 기대되는 하루야. ✨</div>
+        <div class="timeline-date" id="timeline-last-date"></div>
+        <div class="timeline-text" id="timeline-last-text"></div>
       </div>
     </div>
   </section>
 
   <div class="divider">· · ♡ · ·</div>
 
-  <!-- STATS -->
   <section class="section">
     <h2 class="section-title">💫 우리가 함께한 시간</h2>
     <div class="stats-grid">
@@ -405,7 +380,6 @@
 
   <div class="divider">· · ♡ · ·</div>
 
-  <!-- PROMISES -->
   <section class="section">
     <h2 class="section-title">🤝 나의 약속</h2>
     <ul class="promise-list">
@@ -417,7 +391,6 @@
     </ul>
   </section>
 
-  <!-- CLOSING -->
   <div class="closing">
     <span class="closing-heart">❤️</span>
     <div class="closing-text">사랑해, 정말 많이. 💗</div>
@@ -425,7 +398,7 @@
   </div>
 
   <script>
-    // ===== STARS =====
+    // ===== 별 =====
     const starsEl = document.getElementById('stars');
     for (let i = 0; i < 150; i++) {
       const s = document.createElement('div');
@@ -435,25 +408,27 @@
       starsEl.appendChild(s);
     }
 
-    // ===== PETALS =====
+    // ===== 꽃잎 =====
     const petalColors = ['#f9c5d1','#f0a8bf','#e890ae','#fce4ec','#f8bbd0'];
     const petalsEl = document.getElementById('petals');
     for (let i = 0; i < 20; i++) {
       const p = document.createElement('div');
       p.className = 'petal';
-      const color = petalColors[Math.floor(Math.random() * petalColors.length)];
-      p.style.cssText = `left:${Math.random()*100}%;background:${color};animation-duration:${6+Math.random()*10}s;animation-delay:-${Math.random()*15}s;transform:rotate(${Math.random()*360}deg);`;
+      p.style.cssText = `left:${Math.random()*100}%;background:${petalColors[Math.floor(Math.random()*5)]};animation-duration:${6+Math.random()*10}s;animation-delay:-${Math.random()*15}s;transform:rotate(${Math.random()*360}deg);`;
       petalsEl.appendChild(p);
     }
 
-    // ===== 날짜 계산 (2025년 2월 26일부터) =====
-    const startDate = new Date(2025, 1, 26); // 월은 0부터 시작 → 1 = 2월
-    const today     = new Date();
+    // ===== 날짜 계산 (2026년 2월 26일부터) =====
+    const startDate = new Date(2026, 1, 26); // 2026년 2월 26일 (월: 0-indexed → 1 = 2월)
+    const today = new Date();
     today.setHours(0, 0, 0, 0);
-    const diffDays  = Math.floor((today - startDate) / (1000 * 60 * 60 * 24)) + 1;
+    const diffDays = Math.floor((today - startDate) / (1000 * 60 * 60 * 24)) + 1;
 
     const fmt = d =>
       `${d.getFullYear()}. ${String(d.getMonth()+1).padStart(2,'0')}. ${String(d.getDate()).padStart(2,'0')}`;
+
+    // 탭 타이틀
+    document.title = `우리의 ${diffDays}일 🌸`;
 
     // 헤더 날짜
     document.getElementById('hero-date').textContent = `${fmt(startDate)} — ${fmt(today)}`;
@@ -462,19 +437,16 @@
     document.getElementById('hero-subtitle').innerHTML =
       `네가 내 곁에 있어온<br>소중한 <span style="color:#f9c5d1;font-weight:600;">${diffDays}일</span>`;
 
-    // 편지 속 일수
+    // 편지 일수
     document.getElementById('letter-days').textContent = diffDays;
 
-    // 타임라인 마지막 항목
+    // 타임라인 마지막
     document.getElementById('timeline-last-date').textContent = `D+${diffDays} · 오늘`;
     document.getElementById('timeline-last-text').textContent = `${diffDays}일을 함께한 우리. 앞으로가 더 기대되는 하루야. ✨`;
 
     // 통계
     document.getElementById('stat-days').textContent = diffDays;
     document.getElementById('stat-hours').textContent = (diffDays * 24).toLocaleString();
-
-    // 탭 타이틀
-    document.title = `우리의 ${diffDays}일 🌸`;
 
     // ===== 카운터 애니메이션 =====
     let count = 0;
@@ -484,6 +456,11 @@
       if (count >= diffDays) { count = diffDays; clearInterval(tick); }
       counterEl.textContent = count;
     }, 30);
+
+    // ===== 자정에 자동 갱신 =====
+    const now = new Date();
+    const msUntilMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate()+1) - now;
+    setTimeout(() => location.reload(), msUntilMidnight);
 
     // ===== 스크롤 페이드인 =====
     const observer = new IntersectionObserver(entries => {
