@@ -4,180 +4,122 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>유형연구소 — 오늘의 나를 인쇄합니다</title>
-<meta name="description" content="연애, 카페, 여행, 마감. 짧은 질문으로 나의 유형을 찾고 포스터로 저장하세요.">
-
+<meta name="description" content="연애 온도부터 마감 압박까지. 6문항으로 내 지수를 소수점까지 재고 캐릭터 포스터로 저장하세요.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="유형연구소 — 오늘의 나를 인쇄합니다">
-<meta property="og:description" content="6문항이면 끝. 내 유형을 포스터로 뽑아가세요.">
+<meta property="og:description" content="6문항이면 끝. 내 온도를 소수점까지 뽑아드립니다.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
 
-<!-- ▼ 애드센스 (실제 도메인에 배포하고 승인받은 뒤에만 광고가 나옵니다) -->
+<!-- ▼ 애드센스 -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7623716689495426"
      crossorigin="anonymous"></script>
 
 <style>
-/* ══════════════════════════════════════════
-   토큰 — 리소그래프 4색 인쇄
-   ══════════════════════════════════════════ */
 :root{
-  --paper:#E7E4F0;        /* 옅은 페리윙클 종이 */
-  --paper-deep:#D8D3E8;
-  --ink:#17143A;          /* 잉크 먹 */
-  --ink-soft:#5B5680;
-  --riso-pink:#FF3D7F;
-  --riso-blue:#2C6CF6;
-  --riso-yellow:#FFB627;
-  --riso-mint:#00BFA6;
-
+  --paper:#F0EBF3; --paper-deep:#E1DAEA;
+  --ink:#221942; --ink-soft:#6B6289;
+  --riso-pink:#FF5C8A; --riso-blue:#4C7CF7; --riso-yellow:#FFC44D; --riso-mint:#2FCFB4;
   --display:"Bagel Fat One", system-ui, sans-serif;
   --body:"Pretendard Variable", Pretendard, -apple-system, system-ui, sans-serif;
   --mono:"DM Mono", ui-monospace, monospace;
-
-  --shift:5px;            /* 인쇄 어긋남 폭 — 이 사이트의 시그니처 */
-  --edge:3px solid var(--ink);
+  --shift:5px; --edge:3px solid var(--ink);
 }
-
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%}
-
-body{
-  font-family:var(--body);
-  background:var(--paper);
-  color:var(--ink);
-  line-height:1.65;
-  min-height:100vh;
-  overflow-x:hidden;
-  padding-bottom:env(safe-area-inset-bottom);
-}
-
-/* 망점 텍스처 — 종이 위에 얹힌 인쇄망 */
-body::before{
-  content:"";
-  position:fixed; inset:0;
-  pointer-events:none; z-index:9999;
-  background-image:radial-gradient(circle at center, rgba(23,20,58,.16) 1px, transparent 1.1px);
-  background-size:5px 5px;
-  mix-blend-mode:multiply;
-  opacity:.55;
-}
-
+body{font-family:var(--body);background:var(--paper);color:var(--ink);line-height:1.65;min-height:100vh;overflow-x:hidden;padding-bottom:env(safe-area-inset-bottom)}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;
+  background-image:radial-gradient(circle at center, rgba(34,25,66,.13) 1px, transparent 1.1px);
+  background-size:5px 5px;mix-blend-mode:multiply;opacity:.5}
 .wrap{max-width:600px;margin:0 auto;padding:0 18px}
 
-/* ── 머리말 ────────────────────────────── */
 .masthead{padding:26px 0 14px;display:flex;justify-content:space-between;align-items:baseline;gap:12px}
-.brand{font-family:var(--display);font-size:20px;letter-spacing:-.01em;line-height:1}
+.brand{font-family:var(--display);font-size:20px;line-height:1}
 .brand em{font-style:normal;color:var(--riso-pink)}
 .plate{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-soft);text-transform:uppercase}
 
-/* ── 어긋난 겹인쇄 활자 (시그니처) ──────── */
 .overprint{position:relative;display:inline-block;font-family:var(--display);line-height:1.02;letter-spacing:-.02em}
-.overprint::before{
-  content:attr(data-text);
-  position:absolute; left:calc(var(--shift) * -1); top:var(--shift);
-  color:var(--riso-pink);
-  mix-blend-mode:multiply;
-  z-index:-1;
-  white-space:pre-wrap;
-}
-.overprint.blue::before{color:var(--riso-blue)}
-.overprint.mint::before{color:var(--riso-mint)}
-.overprint.yellow::before{color:var(--riso-yellow)}
+.overprint::before{content:attr(data-text);position:absolute;left:calc(var(--shift) * -1);top:var(--shift);
+  color:var(--riso-pink);mix-blend-mode:multiply;z-index:-1;white-space:pre-wrap}
 
-/* ── 표지 ──────────────────────────────── */
 .cover{padding:18px 0 34px}
 .cover h1{font-size:clamp(40px,12.5vw,68px);margin-bottom:20px}
 .cover p{font-size:15px;color:var(--ink-soft);max-width:30ch}
-
-.regbar{display:flex;gap:0;height:9px;margin:26px 0 8px;border:var(--edge)}
+.regbar{display:flex;height:9px;margin:26px 0 8px;border:var(--edge)}
 .regbar span{flex:1}
 .regbar span:nth-child(1){background:var(--riso-pink)}
 .regbar span:nth-child(2){background:var(--riso-blue)}
 .regbar span:nth-child(3){background:var(--riso-yellow)}
 .regbar span:nth-child(4){background:var(--riso-mint)}
 
-/* ── 테스트 목록 ───────────────────────── */
-.section-label{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--ink-soft);margin:30px 0 14px;text-transform:uppercase}
-
+.section-label{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--ink-soft);margin:30px 0 14px}
 .rack{display:grid;gap:14px;padding-bottom:8px}
-
-.card{
-  display:block;width:100%;text-align:left;cursor:pointer;
-  background:var(--paper);border:var(--edge);border-radius:0;
-  padding:20px 18px;position:relative;
-  font:inherit;color:inherit;
+.card{display:flex;gap:14px;align-items:center;width:100%;text-align:left;cursor:pointer;background:var(--paper);
+  border:var(--edge);padding:18px;font:inherit;color:inherit;
   transition:transform .16s cubic-bezier(.2,.8,.3,1), box-shadow .16s;
-  box-shadow:var(--shift) var(--shift) 0 var(--ink);
-}
+  box-shadow:var(--shift) var(--shift) 0 var(--ink)}
 .card:hover,.card:focus-visible{transform:translate(calc(var(--shift) * -1), calc(var(--shift) * -1));box-shadow:calc(var(--shift) * 2) calc(var(--shift) * 2) 0 var(--ink)}
 .card:active{transform:translate(0,0);box-shadow:0 0 0 var(--ink)}
 .card:focus-visible{outline:3px solid var(--riso-blue);outline-offset:4px}
+.card canvas{flex:none;width:74px;height:74px}
+.card-body{min-width:0}
+.card-no{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;color:var(--ink-soft)}
+.card h2{font-family:var(--display);font-size:24px;line-height:1.15;margin:4px 0;font-weight:400}
+.card p{font-size:13px;color:var(--ink-soft);line-height:1.45}
+.card[data-ink="pink"]{background:color-mix(in srgb, var(--riso-pink) 15%, var(--paper))}
+.card[data-ink="blue"]{background:color-mix(in srgb, var(--riso-blue) 13%, var(--paper))}
+.card[data-ink="yellow"]{background:color-mix(in srgb, var(--riso-yellow) 24%, var(--paper))}
+.card[data-ink="mint"]{background:color-mix(in srgb, var(--riso-mint) 17%, var(--paper))}
 
-.card-no{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--ink-soft)}
-.card h2{font-family:var(--display);font-size:26px;line-height:1.15;margin:6px 0 6px;font-weight:400}
-.card p{font-size:13.5px;color:var(--ink-soft);line-height:1.5}
-.card .meta{font-family:var(--mono);font-size:10.5px;margin-top:12px;letter-spacing:.06em}
-
-.card[data-ink="pink"]{background:color-mix(in srgb, var(--riso-pink) 13%, var(--paper))}
-.card[data-ink="blue"]{background:color-mix(in srgb, var(--riso-blue) 12%, var(--paper))}
-.card[data-ink="yellow"]{background:color-mix(in srgb, var(--riso-yellow) 20%, var(--paper))}
-.card[data-ink="mint"]{background:color-mix(in srgb, var(--riso-mint) 14%, var(--paper))}
-
-/* ── 문항 화면 ─────────────────────────── */
-.quiz-top{padding:20px 0 6px;display:flex;align-items:center;gap:12px}
+.quiz-top{padding:20px 0 6px}
 .back{font:inherit;font-family:var(--mono);font-size:11px;letter-spacing:.1em;background:none;border:none;color:var(--ink-soft);cursor:pointer;padding:6px 0}
 .back:hover{color:var(--ink)}
-
 .gauge{height:9px;border:var(--edge);display:flex;overflow:hidden;margin:8px 0 4px}
 .gauge i{display:block;background:var(--riso-pink);width:0;transition:width .3s cubic-bezier(.2,.8,.3,1)}
 .gauge-txt{font-family:var(--mono);font-size:10.5px;color:var(--ink-soft);letter-spacing:.1em;margin-bottom:26px}
-
 .qbody{animation:slidein .28s cubic-bezier(.2,.8,.3,1)}
 @keyframes slidein{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-
 .qtext{font-family:var(--display);font-size:clamp(24px,7vw,34px);line-height:1.3;font-weight:400;margin-bottom:26px}
-
 .choices{display:grid;gap:12px}
-.choice{
-  font:inherit;text-align:left;cursor:pointer;
-  background:var(--paper);border:var(--edge);
-  padding:17px 18px;font-size:15.5px;line-height:1.45;
-  display:flex;gap:13px;align-items:flex-start;
-  transition:transform .13s, background .13s;
-}
+.choice{font:inherit;text-align:left;cursor:pointer;background:var(--paper);border:var(--edge);
+  padding:17px 18px;font-size:15.5px;line-height:1.45;display:flex;gap:13px;align-items:flex-start;
+  transition:transform .13s, background .13s}
 .choice:hover,.choice:focus-visible{background:var(--paper-deep);transform:translateX(4px)}
 .choice:focus-visible{outline:3px solid var(--riso-blue);outline-offset:3px}
 .choice b{font-family:var(--mono);font-weight:500;font-size:12px;color:var(--ink-soft);padding-top:3px;flex:none}
 
-/* ── 결과 화면 ─────────────────────────── */
 .result-head{padding:22px 0 0}
-.stamp{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.14em;border:2px solid var(--ink);padding:5px 10px;margin-bottom:18px}
+.stamp{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.14em;border:2px solid var(--ink);padding:5px 10px;margin-bottom:14px}
+.hero{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.hero canvas{flex:none;width:150px;height:150px}
+.hero-num{min-width:0}
+.score-label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--ink-soft);margin-bottom:2px}
+.score{font-family:var(--display);font-size:clamp(50px,15vw,74px);line-height:1;letter-spacing:-.03em;display:flex;align-items:baseline;gap:4px}
+.score em{font-style:normal;font-size:.4em;color:var(--riso-pink)}
+.score-bar{height:24px;border:var(--edge);margin:4px 0 6px;padding:3px}
+.score-bar i{display:block;height:100%;background:var(--riso-pink);width:0;transition:width 1s cubic-bezier(.2,.9,.3,1)}
+.score-ends{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10.5px;color:var(--ink-soft);letter-spacing:.06em;margin-bottom:28px}
+
 .type-code{font-family:var(--mono);font-size:13px;letter-spacing:.2em;color:var(--riso-pink);margin-bottom:4px}
-.type-name{font-size:clamp(38px,11.5vw,60px);margin-bottom:16px}
+.type-name{font-size:clamp(36px,11vw,58px);margin-bottom:16px}
 .type-line{font-size:16px;font-weight:600;margin-bottom:10px}
 .type-desc{font-size:15px;color:var(--ink-soft);margin-bottom:24px}
-
 .traits{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
-.traits span{font-family:var(--mono);font-size:11.5px;border:2px solid var(--ink);padding:5px 10px;letter-spacing:.04em}
-
+.traits span{font-family:var(--mono);font-size:11.5px;border:2px solid var(--ink);padding:5px 10px}
 .panel{border:var(--edge);padding:16px 17px;margin-bottom:12px;box-shadow:var(--shift) var(--shift) 0 var(--ink)}
 .panel h3{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--ink-soft);margin-bottom:7px;font-weight:400}
 .panel p{font-size:14.5px;line-height:1.6}
-.panel.good{background:color-mix(in srgb, var(--riso-mint) 15%, var(--paper))}
-.panel.warn{background:color-mix(in srgb, var(--riso-yellow) 22%, var(--paper))}
+.panel.good{background:color-mix(in srgb, var(--riso-mint) 17%, var(--paper))}
+.panel.warn{background:color-mix(in srgb, var(--riso-yellow) 25%, var(--paper))}
 
 .preview{width:100%;border:var(--edge);margin:26px 0 16px;display:block;background:var(--paper)}
-
 .actions{display:grid;gap:11px;margin-bottom:30px}
-.btn{
-  font:inherit;font-weight:700;font-size:15.5px;cursor:pointer;
-  padding:16px;border:var(--edge);background:var(--paper);color:var(--ink);
-  box-shadow:var(--shift) var(--shift) 0 var(--ink);
-  transition:transform .13s, box-shadow .13s;
-}
+.btn{font:inherit;font-weight:700;font-size:15.5px;cursor:pointer;padding:16px;border:var(--edge);
+  background:var(--paper);color:var(--ink);box-shadow:var(--shift) var(--shift) 0 var(--ink);
+  transition:transform .13s, box-shadow .13s}
 .btn:hover,.btn:focus-visible{transform:translate(calc(var(--shift) * -1), calc(var(--shift) * -1));box-shadow:calc(var(--shift) * 2) calc(var(--shift) * 2) 0 var(--ink)}
 .btn:active{transform:translate(0,0);box-shadow:0 0 0}
 .btn:focus-visible{outline:3px solid var(--riso-blue);outline-offset:4px}
@@ -185,24 +127,14 @@ body::before{
 .btn.ghost{box-shadow:none;background:transparent;font-weight:500}
 .btn.ghost:hover{transform:none;box-shadow:none;background:var(--paper-deep)}
 
-.toast{
-  position:fixed;left:50%;bottom:26px;transform:translate(-50%,80px);
-  background:var(--ink);color:var(--paper);padding:12px 20px;
-  font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;
-  z-index:10000;opacity:0;transition:all .28s cubic-bezier(.2,.8,.3,1);
-  pointer-events:none;max-width:calc(100% - 36px);text-align:center;
-}
+.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,80px);background:var(--ink);color:var(--paper);
+  padding:12px 20px;font-family:var(--mono);font-size:12.5px;z-index:10000;opacity:0;
+  transition:all .28s cubic-bezier(.2,.8,.3,1);pointer-events:none;max-width:calc(100% - 36px);text-align:center}
 .toast.on{transform:translate(-50%,0);opacity:1}
-
-/* ── 광고 자리 ─────────────────────────── */
 .adslot{margin:28px 0;min-height:1px}
 .adslot ins{display:block}
-
-/* ── 꼬리말 ────────────────────────────── */
-footer{border-top:var(--edge);margin-top:34px;padding:20px 0 42px;font-family:var(--mono);font-size:11px;color:var(--ink-soft);letter-spacing:.05em;line-height:1.9}
-
+footer{border-top:var(--edge);margin-top:34px;padding:20px 0 42px;font-family:var(--mono);font-size:11px;color:var(--ink-soft);line-height:1.9}
 .hidden{display:none}
-
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
   .card:hover,.btn:hover,.choice:hover{transform:none}
@@ -210,37 +142,28 @@ footer{border-top:var(--edge);margin-top:34px;padding:20px 0 42px;font-family:va
 </style>
 </head>
 <body>
-
 <div class="wrap">
   <header class="masthead">
     <div class="brand">유형<em>연구소</em></div>
     <div class="plate">RISO / 4-COLOR</div>
   </header>
 
-  <!-- ══ 표지 ══ -->
   <main id="home">
     <section class="cover">
       <h1 class="overprint" data-text="오늘의 나를&#10;인쇄합니다">오늘의 나를<br>인쇄합니다</h1>
-      <p>질문 여섯 개면 충분합니다. 결과는 포스터로 뽑아 가세요.</p>
+      <p>질문 여섯 개면 충분합니다. 소수점까지 재서 캐릭터 포스터로 뽑아 드려요.</p>
       <div class="regbar"><span></span><span></span><span></span><span></span></div>
       <div class="plate">가입 없음 · 6문항 · 약 40초</div>
     </section>
-
     <h2 class="section-label">인쇄 대기 목록</h2>
     <div class="rack" id="rack"></div>
-
-    <!-- 광고 ① 목록 하단 -->
     <div class="adslot">
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-7623716689495426"
-           data-ad-slot="0000000000"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
+      <ins class="adsbygoogle" style="display:block"
+           data-ad-client="ca-pub-7623716689495426" data-ad-slot="0000000000"
+           data-ad-format="auto" data-full-width-responsive="true"></ins>
     </div>
   </main>
 
-  <!-- ══ 문항 ══ -->
   <main id="quiz" class="hidden">
     <div class="quiz-top"><button class="back" id="btnBack">← 목록으로</button></div>
     <div class="gauge"><i id="gaugeFill"></i></div>
@@ -248,35 +171,37 @@ footer{border-top:var(--edge);margin-top:34px;padding:20px 0 42px;font-family:va
     <div class="qbody" id="qbody"></div>
   </main>
 
-  <!-- ══ 결과 ══ -->
   <main id="result" class="hidden">
     <section class="result-head">
       <div class="stamp" id="rStamp"></div>
+      <div class="hero">
+        <canvas id="charView" width="300" height="300" aria-hidden="true"></canvas>
+        <div class="hero-num">
+          <div class="score-label" id="sLabel"></div>
+          <div class="score"><span id="sNum">0.0</span><em id="sUnit"></em></div>
+        </div>
+      </div>
+      <div class="score-bar"><i id="sFill"></i></div>
+      <div class="score-ends"><span id="sLow"></span><span id="sHigh"></span></div>
+
       <div class="type-code" id="rCode"></div>
       <h1 class="type-name overprint" id="rName" data-text=""></h1>
       <p class="type-line" id="rLine"></p>
       <p class="type-desc" id="rDesc"></p>
       <div class="traits" id="rTraits"></div>
-
       <div class="panel good"><h3>잘 맞는 유형</h3><p id="rMatch"></p></div>
       <div class="panel warn"><h3>조심할 것</h3><p id="rWarn"></p></div>
 
       <canvas class="preview" id="poster" width="1080" height="1920" aria-label="결과 포스터 미리보기"></canvas>
-
       <div class="actions">
         <button class="btn primary" id="btnShare">포스터 공유하기</button>
         <button class="btn" id="btnSave">이미지로 저장</button>
         <button class="btn ghost" id="btnAgain">다른 테스트 하기</button>
       </div>
-
-      <!-- 광고 ② 결과 하단 -->
       <div class="adslot">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-7623716689495426"
-             data-ad-slot="1111111111"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
+        <ins class="adsbygoogle" style="display:block"
+             data-ad-client="ca-pub-7623716689495426" data-ad-slot="1111111111"
+             data-ad-format="auto" data-full-width-responsive="true"></ins>
       </div>
     </section>
   </main>
@@ -287,53 +212,55 @@ footer{border-top:var(--edge);margin-top:34px;padding:20px 0 42px;font-family:va
     © 2026 유형연구소
   </footer>
 </div>
-
 <div class="toast" id="toast"></div>
-
 <script>
 /* ══════════════════════════════════════════════════════════
-   테스트 데이터 — 여기에 객체 하나만 추가하면 새 테스트 완성
-   axes: [[한쪽 이름, 반대쪽 이름], [ ... ]]
-   각 문항의 side 0/1 이 해당 축의 앞/뒤 값에 투표합니다.
-   results 키는 축별 승자 조합 ("00","01","10","11")
+   테스트 데이터
+   opts.v = 지수 가중치(0~100) · 6문항 평균이 최종 수치
+   char  = 결과 캐릭터 (eyes / mouth / tuft / prop / tint)
    ══════════════════════════════════════════════════════════ */
 const TESTS = [
 {
-  id:"love", ink:"pink", accent:"#FF3D7F",
+  id:"love", ink:"pink", accent:"#FF5C8A",
   title:"연애 온도 진단",
   blurb:"좋아하는 마음이 밖으로 나오는 방식과 속도를 봅니다.",
+  meter:{label:"연애 온도", unit:"°C", low:"미지근", high:"펄펄"},
   axes:[["직진","은근"],["폭주","신중"]],
   questions:[
-    {axis:0, q:"좋아하는 사람이 생겼다. 가장 먼저 하는 일은?",
-     opts:[{s:0,t:"연락처부터 물어본다. 시작은 내가 한다."},{s:1,t:"일단 그 사람 계정을 조용히 훑는다."}]},
-    {axis:0, q:"상대가 다른 사람 얘기를 꺼냈다.",
-     opts:[{s:0,t:"\"그 사람 좋아해?\" 그냥 물어본다."},{s:1,t:"아무렇지 않은 척하고 표정만 살핀다."}]},
-    {axis:0, q:"카톡을 보냈는데 두 시간째 답이 없다.",
-     opts:[{s:0,t:"\"바빠?\" 한 번 더 보낸다."},{s:1,t:"안 보낸 척 다른 일을 한다."}]},
-    {axis:1, q:"두 번째 만남에서 상대가 꽤 마음에 든다.",
-     opts:[{s:0,t:"이번 주에 또 보자고 바로 잡는다."},{s:1,t:"몇 번 더 봐야 알 것 같다."}]},
-    {axis:1, q:"고백 타이밍을 재는 중이다.",
-     opts:[{s:0,t:"타이밍은 재는 게 아니라 만드는 것."},{s:1,t:"확신이 없으면 말하지 않는다."}]},
-    {axis:1, q:"상대가 애매한 신호를 보낸다.",
-     opts:[{s:0,t:"애매하면 물어서 확실하게 만든다."},{s:1,t:"확실해질 때까지 기다린다."}]}
+    {axis:0,q:"좋아하는 사람이 생겼다. 가장 먼저 하는 일은?",
+     opts:[{s:0,v:92,t:"연락처부터 물어본다. 시작은 내가 한다."},{s:1,v:14,t:"일단 그 사람 계정을 조용히 훑는다."}]},
+    {axis:0,q:"상대가 다른 사람 얘기를 꺼냈다.",
+     opts:[{s:0,v:97,t:"\"그 사람 좋아해?\" 그냥 물어본다."},{s:1,v:21,t:"아무렇지 않은 척하고 표정만 살핀다."}]},
+    {axis:0,q:"카톡을 보냈는데 두 시간째 답이 없다.",
+     opts:[{s:0,v:85,t:"\"바빠?\" 한 번 더 보낸다."},{s:1,v:8,t:"안 보낸 척 다른 일을 한다."}]},
+    {axis:1,q:"두 번째 만남에서 상대가 꽤 마음에 든다.",
+     opts:[{s:0,v:94,t:"이번 주에 또 보자고 바로 잡는다."},{s:1,v:26,t:"몇 번 더 봐야 알 것 같다."}]},
+    {axis:1,q:"고백 타이밍을 재는 중이다.",
+     opts:[{s:0,v:99,t:"타이밍은 재는 게 아니라 만드는 것."},{s:1,v:11,t:"확신이 없으면 말하지 않는다."}]},
+    {axis:1,q:"상대가 애매한 신호를 보낸다.",
+     opts:[{s:0,v:88,t:"애매하면 물어서 확실하게 만든다."},{s:1,v:17,t:"확실해질 때까지 기다린다."}]}
   ],
   results:{
     "00":{code:"L-01",name:"브레이크\n없음",line:"좋으면 바로 말하고 바로 달립니다.",
+      char:{eyes:"star",mouth:"grin",tuft:"heart",prop:"heart",tint:.6},
       desc:"마음을 숨기는 데 에너지를 쓰지 않습니다. 감정과 행동 사이에 시차가 거의 없어서, 상대는 당신이 어디쯤 와 있는지 늘 알 수 있어요. 오해가 적은 대신 물러설 자리도 적습니다.",
       traits:["감정 직행","선톡 담당","후회는 나중에"],
       match:"내 속도를 답답해하지 않고 같이 뛰어주는 사람. 혹은 당신을 한 박자 붙잡아줄 만큼 침착한 사람.",
       warn:"상대가 아직 출발선에 있는데 혼자 반환점을 돌고 있을 수 있습니다. 가끔 뒤를 돌아보세요."},
     "01":{code:"L-02",name:"확신형\n직구",line:"오래 보고, 확신이 서면 숨기지 않습니다.",
+      char:{eyes:"dot",mouth:"smile",tuft:"antenna",prop:"star",tint:.42},
       desc:"판단이 설 때까지는 조용하지만 결론이 나면 돌려 말하지 않습니다. 그래서 당신의 고백은 무게가 실려요. 다만 그 조용한 기간 동안 상대는 당신의 마음을 전혀 모릅니다.",
       traits:["느린 시동","말하면 진심","떠보지 않음"],
       match:"당신이 관찰하는 동안 도망가지 않고 자리를 지켜주는 사람.",
       warn:"확신을 기다리다 기회가 먼저 지나갈 수 있습니다. 확신은 종종 겪어봐야 생깁니다."},
     "10":{code:"L-03",name:"혼자\n시즌2",line:"머릿속에서는 이미 다음 화까지 갔습니다.",
+      char:{eyes:"sparkle",mouth:"wave",tuft:"heart",prop:"moon",tint:.48},
       desc:"표현은 아끼면서 감정은 빠르게 자랍니다. 티를 안 냈다고 생각하지만 사실 다 티가 나고, 정작 결정적인 말만 안 합니다. 혼자 앞서간 만큼 혼자 다치기도 쉬워요.",
       traits:["티 안 나는 줄 앎","상상력 풍부","결정타 부재"],
       match:"눈치가 빠르고 먼저 물어봐 주는 사람.",
       warn:"상대는 당신 머릿속 이야기를 읽지 못합니다. 한 문장만 밖으로 꺼내면 많은 게 달라집니다."},
     "11":{code:"L-04",name:"천천히\n스밈",line:"어느새 옆에 있는 방식으로 다가갑니다.",
+      char:{eyes:"happy",mouth:"smile",tuft:"leaf",prop:"cup",tint:.36},
       desc:"급하게 좁히지 않습니다. 대신 오래 남습니다. 상대가 편안함을 느낄 때쯤 이미 꽤 가까워져 있어요. 문제는 그 편안함이 우정으로 굳어버릴 때가 있다는 겁니다.",
       traits:["장기전","안정감","선 넘기 어려움"],
       match:"천천히여도 흔들리지 않고 신호를 읽어주는 사람.",
@@ -341,41 +268,46 @@ const TESTS = [
   }
 },
 {
-  id:"cafe", ink:"blue", accent:"#2C6CF6",
+  id:"cafe", ink:"blue", accent:"#4C7CF7",
   title:"카페 자리 유형",
   blurb:"어디에 앉고 무엇을 하러 가는지로 취향이 갈립니다.",
+  meter:{label:"몰입 지수", unit:"pt", low:"수다 모드", high:"완전 몰입"},
   axes:[["창가","구석"],["작업","수다"]],
   questions:[
-    {axis:0, q:"문을 열고 들어왔다. 눈이 먼저 가는 곳은?",
-     opts:[{s:0,t:"해 드는 창가 자리"},{s:1,t:"구석 벽 쪽 자리"}]},
-    {axis:0, q:"창가와 구석이 둘 다 비었다.",
-     opts:[{s:0,t:"바깥이 보여야 숨이 트인다."},{s:1,t:"등 뒤가 막혀야 마음이 놓인다."}]},
-    {axis:0, q:"옆 테이블 대화가 들린다.",
-     opts:[{s:0,t:"배경음 같아서 오히려 편하다."},{s:1,t:"거슬려서 자리를 옮기고 싶다."}]},
-    {axis:1, q:"카페에 챙겨가는 것은?",
-     opts:[{s:0,t:"노트북과 충전기"},{s:1,t:"휴대폰 하나면 충분"}]},
-    {axis:1, q:"카페에서 보내는 이상적인 두 시간은?",
-     opts:[{s:0,t:"할 일 하나를 끝낸다."},{s:1,t:"쉬지 않고 떠든다."}]},
-    {axis:1, q:"자리를 고르는 기준은?",
-     opts:[{s:0,t:"콘센트가 있는가"},{s:1,t:"마주 보고 앉기 좋은가"}]}
+    {axis:0,q:"문을 열고 들어왔다. 눈이 먼저 가는 곳은?",
+     opts:[{s:0,v:22,t:"해 드는 창가 자리"},{s:1,v:90,t:"구석 벽 쪽 자리"}]},
+    {axis:0,q:"창가와 구석이 둘 다 비었다.",
+     opts:[{s:0,v:15,t:"바깥이 보여야 숨이 트인다."},{s:1,v:95,t:"등 뒤가 막혀야 마음이 놓인다."}]},
+    {axis:0,q:"옆 테이블 대화가 들린다.",
+     opts:[{s:0,v:28,t:"배경음 같아서 오히려 편하다."},{s:1,v:87,t:"거슬려서 자리를 옮기고 싶다."}]},
+    {axis:1,q:"카페에 챙겨가는 것은?",
+     opts:[{s:0,v:93,t:"노트북과 충전기"},{s:1,v:19,t:"휴대폰 하나면 충분"}]},
+    {axis:1,q:"카페에서 보내는 이상적인 두 시간은?",
+     opts:[{s:0,v:98,t:"할 일 하나를 끝낸다."},{s:1,v:12,t:"쉬지 않고 떠든다."}]},
+    {axis:1,q:"자리를 고르는 기준은?",
+     opts:[{s:0,v:89,t:"콘센트가 있는가"},{s:1,v:24,t:"마주 보고 앉기 좋은가"}]}
   ],
   results:{
     "00":{code:"C-01",name:"쇼윈도\n워커",line:"보이는 자리에서 가장 집중이 잘 됩니다.",
+      char:{eyes:"sparkle",mouth:"smile",tuft:"antenna",prop:"laptop",tint:.44},
       desc:"창가에서 노트북을 펼칩니다. 누군가 볼 수 있다는 감각이 오히려 딴짓을 막아줘요. 집에서는 안 되던 일이 여기서는 됩니다.",
       traits:["창가 고정석","적당한 긴장감","콘센트 사수"],
       match:"같은 테이블에서 각자 할 일 하는 사람.",
       warn:"자리 잡는 데 30분 쓰고 일은 40분 하는 날이 있습니다."},
     "01":{code:"C-02",name:"볕 쬐는\n수다러",line:"밝은 자리에서 오래 떠듭니다.",
+      char:{eyes:"happy",mouth:"grin",tuft:"bow",prop:"cup",tint:.36},
       desc:"카페는 일하는 곳이 아니라 만나는 곳입니다. 창가에서 해 받으며 두세 시간이 훅 지나가요. 사진도 여기서 제일 잘 나옵니다.",
       traits:["체류형","분위기 우선","리필 애용"],
       match:"말이 끊기지 않는 사람.",
       warn:"뒤에 기다리는 사람이 있는지 가끔 확인해 주세요."},
     "10":{code:"C-03",name:"동굴\n몰입러",line:"시야가 막혀야 머리가 열립니다.",
+      char:{eyes:"sleepy",mouth:"line",tuft:"none",prop:"laptop",tint:.54},
       desc:"가장 안쪽, 벽을 등진 자리를 찾습니다. 시야에 사람이 없어야 집중이 시작돼요. 이어폰을 끼는 순간 세상과 분리됩니다.",
       traits:["벽 등지기","노이즈캔슬링","장시간 정주행"],
       match:"말 걸지 않고 옆에 있어주는 사람.",
       warn:"너무 잘 숨어서 일행이 못 찾는 일이 생깁니다."},
     "11":{code:"C-04",name:"밀담\n전문가",line:"구석에서 진짜 이야기가 나옵니다.",
+      char:{eyes:"wink",mouth:"w",tuft:"curl",prop:"cup",tint:.46},
       desc:"소리가 새지 않는 자리를 본능적으로 고릅니다. 그래서 당신과의 대화는 늘 한 겹 더 깊어요. 카페는 배경이고 사람이 목적입니다.",
       traits:["구석 선점","깊은 대화","목소리 조절"],
       match:"비밀을 지킬 줄 아는 사람.",
@@ -383,41 +315,46 @@ const TESTS = [
   }
 },
 {
-  id:"travel", ink:"mint", accent:"#00BFA6",
+  id:"travel", ink:"mint", accent:"#2FCFB4",
   title:"여행 스타일 진단",
   blurb:"계획을 대하는 태도와 하루를 쓰는 방식을 봅니다.",
+  meter:{label:"일정 밀도", unit:"%", low:"늘어짐", high:"빈틈없음"},
   axes:[["설계","즉흥"],["정복","체류"]],
   questions:[
-    {axis:0, q:"출발 일주일 전, 당신의 상태는?",
-     opts:[{s:0,t:"시간 단위 일정표가 이미 있다."},{s:1,t:"항공권과 숙소만 잡혀 있다."}]},
-    {axis:0, q:"맛집 앞에 줄이 길다.",
-     opts:[{s:0,t:"예약을 안 한 내 잘못이다. 대안 리스트를 연다."},{s:1,t:"그냥 옆집 들어간다."}]},
-    {axis:0, q:"비가 와서 일정이 틀어졌다.",
-     opts:[{s:0,t:"우천 시 대안을 미리 짜뒀다."},{s:1,t:"오히려 잘됐다. 오늘은 다른 걸 하자."}]},
-    {axis:1, q:"3박 4일 일정에 넣고 싶은 장소 개수는?",
-     opts:[{s:0,t:"많을수록 좋다. 온 김에 다 본다."},{s:1,t:"서너 곳이면 충분하다."}]},
-    {axis:1, q:"여행지에서의 아침 9시.",
-     opts:[{s:0,t:"이미 첫 일정 이동 중"},{s:1,t:"아직 침대"}]},
-    {axis:1, q:"좋았던 장소를 발견했다.",
-     opts:[{s:0,t:"사진 찍고 다음 장소로."},{s:1,t:"여기서 두 시간 더 있는다."}]}
+    {axis:0,q:"출발 일주일 전, 당신의 상태는?",
+     opts:[{s:0,v:94,t:"시간 단위 일정표가 이미 있다."},{s:1,v:20,t:"항공권과 숙소만 잡혀 있다."}]},
+    {axis:0,q:"맛집 앞에 줄이 길다.",
+     opts:[{s:0,v:88,t:"예약을 안 한 내 잘못이다. 대안 리스트를 연다."},{s:1,v:13,t:"그냥 옆집 들어간다."}]},
+    {axis:0,q:"비가 와서 일정이 틀어졌다.",
+     opts:[{s:0,v:96,t:"우천 시 대안을 미리 짜뒀다."},{s:1,v:25,t:"오히려 잘됐다. 오늘은 다른 걸 하자."}]},
+    {axis:1,q:"3박 4일 일정에 넣고 싶은 장소 개수는?",
+     opts:[{s:0,v:91,t:"많을수록 좋다. 온 김에 다 본다."},{s:1,v:18,t:"서너 곳이면 충분하다."}]},
+    {axis:1,q:"여행지에서의 아침 9시.",
+     opts:[{s:0,v:97,t:"이미 첫 일정 이동 중"},{s:1,v:9,t:"아직 침대"}]},
+    {axis:1,q:"좋았던 장소를 발견했다.",
+     opts:[{s:0,v:86,t:"사진 찍고 다음 장소로."},{s:1,v:23,t:"여기서 두 시간 더 있는다."}]}
   ],
   results:{
     "00":{code:"T-01",name:"일정표\n지휘관",line:"계획대로 최대한 많이 봅니다.",
+      char:{eyes:"dot",mouth:"grin",tuft:"antenna",prop:"clock",tint:.5},
       desc:"동선과 이동 시간이 머릿속에 들어 있습니다. 남들은 하루에 세 곳 갈 때 당신은 여섯 곳을 갑니다. 여행이 끝나면 남는 게 확실히 많아요.",
       traits:["분 단위 설계","높은 밀도","일행이 편함"],
       match:"당신의 일정을 믿고 따라와 주는 사람.",
       warn:"여행이 프로젝트가 되면 쉬러 간 게 아니게 됩니다."},
     "01":{code:"T-02",name:"완벽한\n게으름",line:"쉬기 위한 계획을 세웁니다.",
+      char:{eyes:"happy",mouth:"smile",tuft:"leaf",prop:"cup",tint:.36},
       desc:"일정은 촘촘하지 않지만 준비는 철저합니다. 좋은 숙소, 좋은 카페, 좋은 산책로를 미리 찾아두고 그 안에서 느리게 움직여요. 계획의 목적이 여유입니다.",
       traits:["숙소 투자","적은 장소","높은 만족도"],
       match:"조용한 시간을 어색해하지 않는 사람.",
       warn:"함께 간 사람이 더 돌아다니고 싶어 할 수 있습니다."},
     "10":{code:"T-03",name:"발 닿는\n대로",line:"계획 없이 많이 봅니다.",
+      char:{eyes:"star",mouth:"o",tuft:"curl",prop:"camera",tint:.46},
       desc:"아침에 일어나서 그날 갈 곳을 정합니다. 그런데도 하루가 꽉 차요. 길에서 만난 것들이 일정이 되고, 예상 못 한 장면이 여행의 중심이 됩니다.",
       traits:["당일 결정","우연에 강함","체력 좋음"],
       match:"같이 헤매도 웃을 수 있는 사람.",
       warn:"성수기에는 즉흥이 비싸집니다. 숙소만은 미리 잡으세요."},
     "11":{code:"T-04",name:"숙소\n붙박이",line:"한 곳에 오래 머무는 여행을 합니다.",
+      char:{eyes:"sleepy",mouth:"smile",tuft:"bow",prop:"moon",tint:.4},
       desc:"많이 보는 것보다 깊게 있는 걸 택합니다. 같은 카페를 사흘 연속 가고 직원과 인사를 트게 돼요. 여행이라기보다 잠깐 그곳에 사는 쪽에 가깝습니다.",
       traits:["단골 만들기","낮은 이동량","현지 감각"],
       match:"관광지 체크리스트가 없는 사람.",
@@ -425,41 +362,46 @@ const TESTS = [
   }
 },
 {
-  id:"deadline", ink:"yellow", accent:"#FFB627",
+  id:"deadline", ink:"yellow", accent:"#FFC44D",
   title:"마감 유형 진단",
   blurb:"과제와 일이 닥쳤을 때 나오는 진짜 습관입니다.",
+  meter:{label:"마감 압박 지수", unit:"%", low:"여유롭게", high:"벼랑 끝"},
   axes:[["선착수","막판"],["독행","협업"]],
   questions:[
-    {axis:0, q:"2주 뒤 마감인 과제를 받았다.",
-     opts:[{s:0,t:"오늘 일단 시작은 해둔다."},{s:1,t:"2주 뒤에 시작할 것이다."}]},
-    {axis:0, q:"당신의 최고 집중력이 나오는 순간은?",
-     opts:[{s:0,t:"여유가 있을 때. 쫓기면 무너진다."},{s:1,t:"마감 전날 밤. 그때만 뇌가 켜진다."}]},
-    {axis:0, q:"마감이 3일 미뤄졌다.",
-     opts:[{s:0,t:"완성도를 더 올린다."},{s:1,t:"3일 더 미룬다."}]},
-    {axis:1, q:"막히는 부분이 생겼다.",
-     opts:[{s:0,t:"될 때까지 혼자 파고든다."},{s:1,t:"바로 누군가에게 물어본다."}]},
-    {axis:1, q:"조별 과제가 배정됐다.",
-     opts:[{s:0,t:"내 몫만 확실히 하고 끝낸다."},{s:1,t:"일단 회의부터 잡는다."}]},
-    {axis:1, q:"일이 잘 풀렸을 때 먼저 드는 생각은?",
-     opts:[{s:0,t:"조용히 다음 걸 시작한다."},{s:1,t:"누구한테 말하고 싶다."}]}
+    {axis:0,q:"2주 뒤 마감인 과제를 받았다.",
+     opts:[{s:0,v:12,t:"오늘 일단 시작은 해둔다."},{s:1,v:96,t:"2주 뒤에 시작할 것이다."}]},
+    {axis:0,q:"당신의 최고 집중력이 나오는 순간은?",
+     opts:[{s:0,v:18,t:"여유가 있을 때. 쫓기면 무너진다."},{s:1,v:99,t:"마감 전날 밤. 그때만 뇌가 켜진다."}]},
+    {axis:0,q:"마감이 3일 미뤄졌다.",
+     opts:[{s:0,v:9,t:"완성도를 더 올린다."},{s:1,v:93,t:"3일 더 미룬다."}]},
+    {axis:1,q:"막히는 부분이 생겼다.",
+     opts:[{s:0,v:71,t:"될 때까지 혼자 파고든다."},{s:1,v:44,t:"바로 누군가에게 물어본다."}]},
+    {axis:1,q:"조별 과제가 배정됐다.",
+     opts:[{s:0,v:68,t:"내 몫만 확실히 하고 끝낸다."},{s:1,v:39,t:"일단 회의부터 잡는다."}]},
+    {axis:1,q:"일이 잘 풀렸을 때 먼저 드는 생각은?",
+     opts:[{s:0,v:74,t:"조용히 다음 걸 시작한다."},{s:1,v:47,t:"누구한테 말하고 싶다."}]}
   ],
   results:{
     "00":{code:"D-01",name:"조용한\n완주자",line:"미리 시작해서 혼자 끝냅니다.",
+      char:{eyes:"happy",mouth:"smile",tuft:"leaf",prop:"star",tint:.4},
       desc:"마감 전에 이미 끝나 있습니다. 요란하지 않아서 티가 잘 안 나지만 당신이 빠지면 바로 표가 나요. 가장 신뢰받는 유형이자 가장 과소평가되는 유형입니다.",
       traits:["사전 착수","자기 완결","낮은 소음"],
       match:"당신의 기여를 알아보고 말해주는 사람.",
       warn:"티를 안 내면 정말로 아무도 모릅니다. 가끔은 공유하세요."},
     "01":{code:"D-02",name:"판 짜는\n사람",line:"먼저 시작해서 구조부터 만듭니다.",
+      char:{eyes:"sparkle",mouth:"grin",tuft:"antenna",prop:"clock",tint:.5},
       desc:"혼자 다 하지 않습니다. 대신 일이 굴러가는 판을 짭니다. 일정과 역할이 정해지고 나면 팀 전체 속도가 달라져요. 리더를 맡게 되는 이유가 있습니다.",
       traits:["초반 설계","역할 분배","일정 관리"],
       match:"맡은 걸 제때 가져오는 사람.",
       warn:"판만 짜다가 정작 내 몫을 마지막에 몰아 하게 됩니다."},
     "10":{code:"D-03",name:"새벽의\n폭발",line:"막판에 혼자 다 끝냅니다.",
+      char:{eyes:"sleepy",mouth:"wave",tuft:"curl",prop:"moon",tint:.58},
       desc:"마감 12시간 전에 시동이 걸립니다. 그리고 실제로 해냅니다. 매번 이번이 마지막이라고 다짐하지만, 그 압박이 없으면 집중이 안 되는 걸 스스로도 알고 있어요.",
       traits:["압박 연료","단기 폭발력","반복되는 후회"],
       match:"미리 알림을 걸어주지만 잔소리는 안 하는 사람.",
       warn:"이 방식은 혼자 할 때만 통합니다. 남이 엮이면 민폐가 됩니다."},
     "11":{code:"D-04",name:"긴급\n소집",line:"막판에 사람을 모아 해결합니다.",
+      char:{eyes:"wide",mouth:"o",tuft:"antenna",prop:"clock",tint:.46},
       desc:"마감이 닥치면 단톡방이 켜집니다. 놀랍게도 잘 굴러가요. 혼자였으면 못 했을 일을 사람을 모아 끝내는 능력이 있습니다. 위기 대응력이 진짜 재능입니다.",
       traits:["소집력","현장 대응","분위기 유지"],
       match:"급할 때 전화를 받아주는 사람.",
@@ -468,221 +410,423 @@ const TESTS = [
 }
 ];
 
-/* ══ 상태 ══ */
-let cur=null, qIdx=0, tally=[];
+const INK="#221942", SOFT="#6B6289", PAPER="#F0EBF3";
 
+/* ══ 색 보조 ══ */
+function h2r(h){h=h.replace("#","");return[parseInt(h.slice(0,2),16),parseInt(h.slice(2,4),16),parseInt(h.slice(4,6),16)]}
+function mixc(hex,base,t){const a=h2r(hex),b=h2r(base);
+  return `rgb(${Math.round(a[0]*t+b[0]*(1-t))},${Math.round(a[1]*t+b[1]*(1-t))},${Math.round(a[2]*t+b[2]*(1-t))})`}
+function rr(x,px,py,w,h,r){r=Math.min(r,w/2,h/2);x.beginPath();
+  x.moveTo(px+r,py);x.lineTo(px+w-r,py);x.quadraticCurveTo(px+w,py,px+w,py+r);
+  x.lineTo(px+w,py+h-r);x.quadraticCurveTo(px+w,py+h,px+w-r,py+h);
+  x.lineTo(px+r,py+h);x.quadraticCurveTo(px,py+h,px,py+h-r);
+  x.lineTo(px,py+r);x.quadraticCurveTo(px,py,px+r,py);x.closePath()}
+
+/* ══════════════════════════════════════════
+   캐릭터 — 파라미터로 조합되는 리소풍 마스코트
+   ══════════════════════════════════════════ */
+function drawChar(x,cx,cy,s,spec,A){
+  const lw=Math.max(2,s*0.075);
+  x.save();x.lineJoin="round";x.lineCap="round";
+
+  // 반짝임
+  x.fillStyle=A;
+  [[-1.25,-.85,.16],[1.2,-1.0,.12],[1.35,.35,.09]].forEach(p=>{
+    sparkle(x,cx+s*p[0],cy+s*p[1],s*p[2]);
+  });
+
+  // 그림자
+  x.fillStyle="rgba(34,25,66,0.10)";
+  x.beginPath();x.ellipse(cx,cy+s*1.05,s*0.8,s*0.15,0,0,7);x.fill();
+
+  // 머리 장식 (몸 뒤)
+  x.strokeStyle=INK;x.lineWidth=lw;x.fillStyle=A;
+  if(spec.tuft==="antenna"){
+    x.beginPath();x.moveTo(cx,cy-s*0.85);x.quadraticCurveTo(cx+s*0.1,cy-s*1.25,cx+s*0.28,cy-s*1.3);x.stroke();
+    x.beginPath();x.arc(cx+s*0.3,cy-s*1.34,s*0.13,0,7);x.fill();x.stroke();
+  }else if(spec.tuft==="heart"){
+    heart(x,cx,cy-s*1.18,s*0.3);x.fill();x.stroke();
+  }else if(spec.tuft==="leaf"){
+    x.beginPath();x.moveTo(cx-s*0.05,cy-s*0.9);
+    x.quadraticCurveTo(cx+s*0.35,cy-s*1.4,cx+s*0.42,cy-s*1.05);
+    x.quadraticCurveTo(cx+s*0.2,cy-s*0.85,cx-s*0.05,cy-s*0.9);x.closePath();x.fill();x.stroke();
+  }else if(spec.tuft==="curl"){
+    x.beginPath();x.moveTo(cx-s*0.05,cy-s*0.88);
+    x.bezierCurveTo(cx-s*0.1,cy-s*1.35,cx+s*0.45,cy-s*1.3,cx+s*0.22,cy-s*1.0);x.stroke();
+  }else if(spec.tuft==="bow"){
+    x.beginPath();x.ellipse(cx-s*0.4,cy-s*0.78,s*0.2,s*0.15,-0.4,0,7);x.fill();x.stroke();
+    x.beginPath();x.ellipse(cx-s*0.02,cy-s*0.78,s*0.2,s*0.15,0.4,0,7);x.fill();x.stroke();
+    x.beginPath();x.arc(cx-s*0.21,cy-s*0.8,s*0.08,0,7);x.fillStyle=mixc(A,INK,.6);x.fill();x.stroke();
+  }
+
+  // 몸통
+  x.beginPath();
+  x.moveTo(cx-s*0.8,cy+s*0.05);
+  x.bezierCurveTo(cx-s*0.82,cy-s*1.02,cx+s*0.82,cy-s*1.02,cx+s*0.8,cy+s*0.05);
+  x.bezierCurveTo(cx+s*0.86,cy+s*0.98,cx-s*0.86,cy+s*0.98,cx-s*0.8,cy+s*0.05);
+  x.closePath();
+  x.fillStyle=mixc(A,PAPER,spec.tint);x.fill();
+  x.strokeStyle=INK;x.lineWidth=lw;x.stroke();
+
+  // 팔
+  x.beginPath();x.moveTo(cx-s*0.78,cy+s*0.28);x.quadraticCurveTo(cx-s*0.98,cy+s*0.4,cx-s*0.88,cy+s*0.58);x.stroke();
+  x.beginPath();x.moveTo(cx+s*0.78,cy+s*0.28);x.quadraticCurveTo(cx+s*0.98,cy+s*0.4,cx+s*0.88,cy+s*0.58);x.stroke();
+
+  // 볼터치
+  x.fillStyle=A;x.globalAlpha=.55;
+  x.beginPath();x.ellipse(cx-s*0.48,cy+s*0.16,s*0.15,s*0.1,0,0,7);x.fill();
+  x.beginPath();x.ellipse(cx+s*0.48,cy+s*0.16,s*0.15,s*0.1,0,0,7);x.fill();
+  x.globalAlpha=1;
+
+  // 눈
+  const ey=cy-s*0.13, ex=s*0.32;
+  x.strokeStyle=INK;x.fillStyle=INK;x.lineWidth=lw*0.9;
+  [-1,1].forEach(d=>{
+    const px=cx+ex*d, e=(spec.eyes==="wink"&&d===1)?"happy":spec.eyes;
+    if(e==="dot"){x.beginPath();x.arc(px,ey,s*0.1,0,7);x.fill()}
+    else if(e==="wide"){x.beginPath();x.arc(px,ey,s*0.14,0,7);x.fill();
+      x.fillStyle="#fff";x.beginPath();x.arc(px+s*0.05,ey-s*0.05,s*0.05,0,7);x.fill();x.fillStyle=INK}
+    else if(e==="sparkle"){x.beginPath();x.arc(px,ey,s*0.12,0,7);x.fill();
+      x.fillStyle="#fff";x.beginPath();x.arc(px+s*0.045,ey-s*0.045,s*0.045,0,7);x.fill();x.fillStyle=INK}
+    else if(e==="happy"){x.beginPath();x.arc(px,ey+s*0.04,s*0.12,Math.PI*1.12,Math.PI*1.88);x.stroke()}
+    else if(e==="sleepy"){x.beginPath();x.moveTo(px-s*0.12,ey);x.quadraticCurveTo(px,ey+s*0.08,px+s*0.12,ey);x.stroke()}
+    else if(e==="star"){star(x,px,ey,s*0.16,s*0.07,5);x.fill()}
+  });
+
+  // 입
+  const my=cy+s*0.3;
+  x.lineWidth=lw*0.9;x.strokeStyle=INK;
+  if(spec.mouth==="smile"){x.beginPath();x.arc(cx,my-s*0.08,s*0.15,Math.PI*0.15,Math.PI*0.85);x.stroke()}
+  else if(spec.mouth==="grin"){x.beginPath();x.arc(cx,my-s*0.1,s*0.2,Math.PI*0.1,Math.PI*0.9);
+    x.fillStyle=mixc(A,INK,.35);x.fill();x.stroke()}
+  else if(spec.mouth==="o"){x.beginPath();x.ellipse(cx,my,s*0.09,s*0.12,0,0,7);
+    x.fillStyle=mixc(A,INK,.35);x.fill();x.stroke()}
+  else if(spec.mouth==="w"){x.beginPath();x.arc(cx-s*0.08,my-s*0.04,s*0.08,Math.PI*0.1,Math.PI*0.9);x.stroke();
+    x.beginPath();x.arc(cx+s*0.08,my-s*0.04,s*0.08,Math.PI*0.1,Math.PI*0.9);x.stroke()}
+  else if(spec.mouth==="line"){x.beginPath();x.moveTo(cx-s*0.1,my);x.lineTo(cx+s*0.1,my);x.stroke()}
+  else if(spec.mouth==="wave"){x.beginPath();x.moveTo(cx-s*0.15,my);
+    x.quadraticCurveTo(cx-s*0.05,my-s*0.09,cx,my);x.quadraticCurveTo(cx+s*0.05,my+s*0.09,cx+s*0.15,my);x.stroke()}
+
+  // 소품
+  drawProp(x,spec.prop,cx+s*1.0,cy+s*0.35,s*0.42,A,lw);
+  x.restore();
+}
+
+function sparkle(x,px,py,r){
+  x.beginPath();
+  x.moveTo(px,py-r);x.quadraticCurveTo(px,py,px+r,py);
+  x.quadraticCurveTo(px,py,px,py+r);x.quadraticCurveTo(px,py,px-r,py);
+  x.quadraticCurveTo(px,py,px,py-r);x.closePath();x.fill();
+}
+function heart(x,px,py,r){
+  x.beginPath();x.moveTo(px,py+r*0.75);
+  x.bezierCurveTo(px-r*1.5,py-r*0.35,px-r*0.5,py-r*1.1,px,py-r*0.35);
+  x.bezierCurveTo(px+r*0.5,py-r*1.1,px+r*1.5,py-r*0.35,px,py+r*0.75);
+  x.closePath();
+}
+function star(x,px,py,R,r,n){
+  x.beginPath();
+  for(let i=0;i<n*2;i++){const a=Math.PI/n*i-Math.PI/2, rad=i%2?r:R;
+    i?x.lineTo(px+Math.cos(a)*rad,py+Math.sin(a)*rad):x.moveTo(px+Math.cos(a)*rad,py+Math.sin(a)*rad)}
+  x.closePath();
+}
+function drawProp(x,kind,px,py,s,A,lw){
+  x.save();x.lineWidth=lw*0.85;x.strokeStyle=INK;x.fillStyle=A;x.lineJoin="round";
+  if(kind==="heart"){heart(x,px,py,s*0.62);x.fill();x.stroke()}
+  else if(kind==="star"){star(x,px,py,s*0.7,s*0.3,5);x.fill();x.stroke()}
+  else if(kind==="moon"){
+    x.beginPath();x.arc(px,py,s*0.62,Math.PI*0.32,Math.PI*1.5);
+    x.quadraticCurveTo(px-s*0.1,py,px+Math.cos(Math.PI*0.32)*s*0.62,py+Math.sin(Math.PI*0.32)*s*0.62);
+    x.closePath();x.fill();x.stroke()}
+  else if(kind==="cup"){
+    rr(x,px-s*0.5,py-s*0.42,s,s*0.9,s*0.14);x.fill();x.stroke();
+    x.beginPath();x.arc(px+s*0.6,py-s*0.02,s*0.2,-1.2,1.2);x.stroke();
+    x.beginPath();x.moveTo(px-s*0.2,py-s*0.62);x.quadraticCurveTo(px-s*0.05,py-s*0.8,px-s*0.2,py-s*0.98);x.stroke()}
+  else if(kind==="laptop"){
+    rr(x,px-s*0.55,py-s*0.55,s*1.1,s*0.72,s*0.08);x.fill();x.stroke();
+    rr(x,px-s*0.72,py+s*0.17,s*1.44,s*0.2,s*0.08);x.fillStyle=mixc(A,PAPER,.5);x.fill();x.stroke()}
+  else if(kind==="clock"){
+    x.beginPath();x.arc(px,py,s*0.62,0,7);x.fill();x.stroke();
+    x.beginPath();x.moveTo(px,py);x.lineTo(px,py-s*0.36);x.moveTo(px,py);x.lineTo(px+s*0.26,py+s*0.1);x.stroke()}
+  else if(kind==="camera"){
+    rr(x,px-s*0.62,py-s*0.42,s*1.24,s*0.86,s*0.12);x.fill();x.stroke();
+    x.beginPath();x.arc(px,py,s*0.26,0,7);x.fillStyle=mixc(A,PAPER,.45);x.fill();x.stroke()}
+  x.restore();
+}
+
+/* ══════════════════════════════════════════
+   온도계
+   ══════════════════════════════════════════ */
+function drawThermo(x,cx,top,bot,w,val,A,unit){
+  const r=w/2, bulbR=w*0.82, bulbCy=bot-bulbR;
+  const tubeBot=bulbCy+8, zero=bulbCy-22, full=top+r*1.2;
+  const lvl=zero-(zero-full)*val/100;
+
+  x.save();x.lineJoin="round";
+  // 관
+  rr(x,cx-r,top,w,tubeBot-top,r);
+  x.fillStyle="#fff";x.fill();x.lineWidth=9;x.strokeStyle=INK;x.stroke();
+  // 수은
+  rr(x,cx-r+9,lvl,w-18,Math.max(6,bulbCy-lvl),(w-18)/2);
+  x.fillStyle=A;x.fill();
+  // 구
+  x.beginPath();x.arc(cx,bulbCy,bulbR,0,7);
+  x.fillStyle=A;x.fill();x.lineWidth=9;x.strokeStyle=INK;x.stroke();
+  // 눈금
+  x.lineWidth=4;x.font='400 21px "DM Mono", monospace';x.textAlign="right";
+  for(let p=0;p<=100;p+=20){
+    const y=zero-(zero-full)*p/100;
+    x.strokeStyle=INK;
+    x.beginPath();x.moveTo(cx-r-6,y);x.lineTo(cx-r-(p%40?13:23),y);x.stroke();
+    if(!(p%40)){x.fillStyle=SOFT;x.fillText(String(p),cx-r-30,y+7)}
+  }
+  x.textAlign="left";
+  // 정확한 수치 지시선
+  x.strokeStyle=INK;x.lineWidth=4;
+  x.beginPath();x.moveTo(cx+r+6,lvl);x.lineTo(cx+r+28,lvl);x.stroke();
+  x.fillStyle=INK;x.font='500 28px "DM Mono", monospace';
+  x.fillText(val.toFixed(1)+unit, cx+r+38, lvl+10);
+  x.restore();
+}
+
+/* ══ 상태 ══ */
+let cur=null,qIdx=0,tally=[],meterSum=0,score=0,curR=null;
 const $=id=>document.getElementById(id);
 const S={home:$("home"),quiz:$("quiz"),result:$("result")};
+const reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-function show(name){
-  Object.entries(S).forEach(([k,el])=>el.classList.toggle("hidden",k!==name));
-  window.scrollTo({top:0,behavior:"instant"});
-}
+function show(n){Object.entries(S).forEach(([k,el])=>el.classList.toggle("hidden",k!==n));window.scrollTo({top:0,behavior:"instant"})}
+function toast(m){const t=$("toast");t.textContent=m;t.classList.add("on");clearTimeout(t._id);t._id=setTimeout(()=>t.classList.remove("on"),2400)}
 
-function toast(msg){
-  const t=$("toast"); t.textContent=msg; t.classList.add("on");
-  clearTimeout(t._id); t._id=setTimeout(()=>t.classList.remove("on"),2400);
-}
-
-/* ══ 목록 그리기 ══ */
 function drawRack(){
-  $("rack").innerHTML = TESTS.map((t,i)=>`
+  $("rack").innerHTML=TESTS.map((t,i)=>`
     <button class="card" data-ink="${t.ink}" data-id="${t.id}">
-      <div class="card-no">NO. ${String(i+1).padStart(2,"0")}</div>
-      <h2>${t.title}</h2>
-      <p>${t.blurb}</p>
-      <div class="meta">${t.questions.length}문항 · ${Object.keys(t.results).length}가지 유형</div>
+      <canvas width="150" height="150" id="thumb-${t.id}"></canvas>
+      <div class="card-body">
+        <div class="card-no">NO. ${String(i+1).padStart(2,"0")} · ${t.meter.label}</div>
+        <h2>${t.title}</h2>
+        <p>${t.blurb}</p>
+      </div>
     </button>`).join("");
-  document.querySelectorAll(".card").forEach(b=>
-    b.addEventListener("click",()=>start(b.dataset.id)));
+  TESTS.forEach(t=>{
+    const c=$("thumb-"+t.id);if(!c)return;
+    const x=c.getContext("2d");x.clearRect(0,0,150,150);
+    drawChar(x,72,72,44,t.results["00"].char,t.accent);
+  });
+  document.querySelectorAll(".card").forEach(b=>b.addEventListener("click",()=>start(b.dataset.id)));
 }
 
-/* ══ 시작 ══ */
 function start(id){
   cur=TESTS.find(t=>t.id===id);
-  qIdx=0;
-  tally=cur.axes.map(()=>[0,0]);
+  qIdx=0;meterSum=0;tally=cur.axes.map(()=>[0,0]);
   document.documentElement.style.setProperty("--riso-pink",cur.accent);
-  show("quiz"); renderQ();
+  show("quiz");renderQ();
 }
 
 function renderQ(){
   const q=cur.questions[qIdx];
-  const pct=(qIdx/cur.questions.length)*100;
-  $("gaugeFill").style.width=pct+"%";
+  $("gaugeFill").style.width=(qIdx/cur.questions.length*100)+"%";
   $("gaugeTxt").textContent=`${cur.title} — ${String(qIdx+1).padStart(2,"0")} / ${String(cur.questions.length).padStart(2,"0")}`;
-  $("qbody").innerHTML=`
-    <h2 class="qtext">${q.q}</h2>
-    <div class="choices">
-      ${q.opts.map((o,i)=>`<button class="choice" data-side="${o.s}"><b>${String.fromCharCode(65+i)}</b><span>${o.t}</span></button>`).join("")}
-    </div>`;
+  $("qbody").innerHTML=`<h2 class="qtext">${q.q}</h2><div class="choices">${
+    q.opts.map((o,i)=>`<button class="choice" data-side="${o.s}" data-v="${o.v}"><b>${String.fromCharCode(65+i)}</b><span>${o.t}</span></button>`).join("")}</div>`;
   $("qbody").querySelectorAll(".choice").forEach(b=>
-    b.addEventListener("click",()=>answer(q.axis,+b.dataset.side)));
+    b.addEventListener("click",()=>answer(q.axis,+b.dataset.side,+b.dataset.v)));
 }
 
-function answer(axis,side){
-  tally[axis][side]++;
-  qIdx++;
-  if(qIdx<cur.questions.length){ renderQ(); }
-  else finish();
+function answer(axis,side,v){
+  tally[axis][side]++;meterSum+=v;qIdx++;
+  qIdx<cur.questions.length?renderQ():finish();
 }
 
 function finish(){
   const key=tally.map(a=>a[0]>=a[1]?"0":"1").join("");
-  const r=cur.results[key];
-  const flat=r.name.replace(/\n/g," ");
+  const r=cur.results[key];curR=r;
+  score=Math.round(meterSum/cur.questions.length*10)/10;
 
   $("rStamp").textContent=`${cur.title} · 결과`;
+  $("sLabel").textContent=cur.meter.label;
+  $("sUnit").textContent=cur.meter.unit;
+  $("sLow").textContent=`0 ${cur.meter.low}`;
+  $("sHigh").textContent=`${cur.meter.high} 100`;
   $("rCode").textContent=r.code;
-  const nameEl=$("rName");
-  nameEl.innerHTML=r.name.replace(/\n/g,"<br>");
-  nameEl.setAttribute("data-text",r.name);
+  const n=$("rName");n.innerHTML=r.name.replace(/\n/g,"<br>");n.setAttribute("data-text",r.name);
   $("rLine").textContent=r.line;
   $("rDesc").textContent=r.desc;
   $("rTraits").innerHTML=r.traits.map(t=>`<span>${t}</span>`).join("");
   $("rMatch").textContent=r.match;
   $("rWarn").textContent=r.warn;
 
-  document.title=`${flat} — ${cur.title} | 유형연구소`;
+  const cv=$("charView").getContext("2d");
+  cv.clearRect(0,0,300,300);drawChar(cv,140,150,88,r.char,cur.accent);
+
+  document.title=`${cur.meter.label} ${score}${cur.meter.unit} — ${r.name.replace(/\n/g," ")} | 유형연구소`;
   show("result");
+  requestAnimationFrame(()=>$("sFill").style.width=score+"%");
+  countUp(score);
   drawPoster(r);
   pushAds();
 }
 
+function countUp(target){
+  const el=$("sNum");
+  if(reduce){el.textContent=target.toFixed(1);return}
+  const dur=1000,t0=performance.now();
+  (function step(t){
+    const p=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-p,3);
+    el.textContent=(target*e).toFixed(1);
+    if(p<1)requestAnimationFrame(step);
+  })(t0);
+}
+
 /* ══════════════════════════════════════════
-   결과 포스터 — 브라우저에서 그립니다 (서버비 0)
-   1080 × 1920, 인스타 스토리 비율
+   포스터 1080 × 1920
    ══════════════════════════════════════════ */
 async function drawPoster(r){
-  const c=$("poster"), x=c.getContext("2d");
-  const W=1080,H=1920, A=cur.accent, INK="#17143A", PAPER="#E7E4F0";
+  const c=$("poster"),x=c.getContext("2d");
+  const W=1080,H=1920,A=cur.accent,M=90;
 
   try{
     await document.fonts.load('400 100px "Bagel Fat One"');
     await document.fonts.load('500 30px "DM Mono"');
+    await document.fonts.load('600 40px "Pretendard Variable"');
     await document.fonts.ready;
   }catch(e){}
 
-  x.fillStyle=PAPER; x.fillRect(0,0,W,H);
+  x.fillStyle=PAPER;x.fillRect(0,0,W,H);
 
-  // 망점
-  x.fillStyle="rgba(23,20,58,0.11)";
-  for(let y=0;y<H;y+=11) for(let i=0;i<W;i+=11){
-    x.beginPath(); x.arc(i,y,1.5,0,7); x.fill();
+  // 강조색 잉크 얼룩
+  for(let y=250;y<740;y+=13){
+    const fade=1-Math.abs(y-495)/280;
+    for(let i=M;i<W-M;i+=13){
+      x.fillStyle=A;x.globalAlpha=.25*Math.max(0,fade);
+      x.beginPath();x.arc(i,y,3.4,0,7);x.fill();
+    }
   }
+  x.globalAlpha=1;
 
-  // 테두리
-  x.strokeStyle=INK; x.lineWidth=8;
-  x.strokeRect(48,48,W-96,H-96);
+  // 먹 망점
+  x.fillStyle="rgba(34,25,66,0.09)";
+  for(let y=0;y<H;y+=12)for(let i=0;i<W;i+=12){x.beginPath();x.arc(i,y,1.4,0,7);x.fill()}
 
-  // 레지스터 바
-  const cols=[A,"#2C6CF6","#FFB627","#00BFA6"];
-  cols.forEach((col,i)=>{ x.fillStyle=col; x.fillRect(96+i*222,110,222,20); });
-  x.strokeStyle=INK; x.lineWidth=5; x.strokeRect(96,110,888,20);
+  x.strokeStyle=INK;x.lineWidth=7;x.strokeRect(44,44,W-88,H-88);
 
-  // 머리말
-  x.fillStyle=INK; x.font='500 27px "DM Mono", monospace';
-  x.fillText("유형연구소 / TYPE LAB", 96, 205);
-  x.font='400 30px "Pretendard Variable", sans-serif';
-  x.fillText(cur.title, 96, 253);
+  // 등록 마크
+  [A,"#4C7CF7","#FFC44D","#2FCFB4"].forEach((col,i)=>{
+    x.fillStyle=col;x.fillRect(M+i*46,104,34,34);
+    x.strokeStyle=INK;x.lineWidth=4;x.strokeRect(M+i*46,104,34,34);
+  });
+  x.fillStyle=SOFT;x.font='500 24px "DM Mono", monospace';
+  x.textAlign="right";x.fillText("유형연구소 / TYPE LAB",W-M,128);x.textAlign="left";
 
-  // 코드
-  x.fillStyle=A; x.font='500 40px "DM Mono", monospace';
-  x.fillText(r.code, 96, 400);
+  x.fillStyle=INK;x.font='600 34px "Pretendard Variable", sans-serif';
+  x.fillText(cur.title,M,236);
 
-  // 유형 이름 — 겹인쇄 어긋남
+  // 캐릭터 + 온도계
+  drawChar(x,330,502,166,r.char,A);
+  drawThermo(x,788,286,706,72,score,A,cur.meter.unit);
+
+  // 수치
+  x.fillStyle=SOFT;x.font='500 28px "DM Mono", monospace';
+  x.fillText(cur.meter.label.toUpperCase(),M,806);
+
+  const num=score.toFixed(1);
+  x.font='400 168px "Bagel Fat One", sans-serif';
+  const nW=x.measureText(num).width;
+  x.globalAlpha=.9;x.fillStyle=A;x.fillText(num,M-14,946);
+  x.globalAlpha=1;x.fillStyle=INK;x.fillText(num,M,932);
+  x.font='400 66px "Bagel Fat One", sans-serif';
+  x.fillStyle=A;x.fillText(cur.meter.unit,M+nW+18,932);
+  x.fillStyle=SOFT;x.font='400 26px "DM Mono", monospace';
+  x.fillText(`0 ${cur.meter.low}  —  ${cur.meter.high} 100`,M,982);
+
+  x.strokeStyle=INK;x.lineWidth=5;
+  x.beginPath();x.moveTo(M,1030);x.lineTo(W-M,1030);x.stroke();
+
+  // 유형
+  x.fillStyle=A;x.font='500 34px "DM Mono", monospace';
+  x.fillText(r.code,M,1090);
+
   const lines=r.name.split("\n");
-  const size=Math.min(150, 150 - (Math.max(...lines.map(l=>l.length))-4)*12);
-  x.font=`400 ${size}px "Bagel Fat One", sans-serif`;
-  let ny=400+size+40;
+  const longest=Math.max(...lines.map(l=>l.length));
+  const tS=Math.max(92,Math.min(122,122-(longest-4)*11));
+  x.font=`400 ${tS}px "Bagel Fat One", sans-serif`;
+  let y=1090+tS*0.92+22;
   lines.forEach(l=>{
-    x.globalAlpha=.85; x.fillStyle=A; x.fillText(l, 96-14, ny+14);
-    x.globalAlpha=1;   x.fillStyle=INK; x.fillText(l, 96, ny);
-    ny+=size*1.06;
+    x.globalAlpha=.9;x.fillStyle=A;x.fillText(l,M-12,y+12);
+    x.globalAlpha=1;x.fillStyle=INK;x.fillText(l,M,y);
+    y+=tS*1.04;
   });
 
-  // 한 줄 요약
-  x.fillStyle=INK; x.font='600 40px "Pretendard Variable", sans-serif';
-  let ty=ny+40;
-  ty=wrap(x, r.line, 96, ty, W-192, 56);
+  x.fillStyle=INK;x.font='600 40px "Pretendard Variable", sans-serif';
+  y=wrap(x,r.line,M,y+30,W-M*2,54);
 
-  // 설명
-  x.fillStyle="#5B5680"; x.font='400 33px "Pretendard Variable", sans-serif';
-  ty=wrap(x, r.desc, 96, ty+34, W-192, 50);
-
-  // 특성 칩
-  let cx=96, cy=ty+70;
+  let cxp=M,cyp=y+46;
   x.font='500 27px "DM Mono", monospace';
   r.traits.forEach(t=>{
     const w=x.measureText(t).width+42;
-    if(cx+w>W-96){ cx=96; cy+=74; }
-    x.strokeStyle=INK; x.lineWidth=5; x.strokeRect(cx,cy,w,58);
-    x.fillStyle=INK; x.fillText(t, cx+21, cy+39);
-    cx+=w+16;
+    if(cxp+w>W-M){cxp=M;cyp+=74}
+    x.strokeStyle=INK;x.lineWidth=5;x.strokeRect(cxp,cyp,w,58);
+    x.fillStyle=INK;x.fillText(t,cxp+21,cyp+39);
+    cxp+=w+16;
   });
 
-  // 꼬리말
-  x.fillStyle=A; x.fillRect(96,H-230,888,10);
-  x.fillStyle=INK; x.font='500 32px "DM Mono", monospace';
-  x.fillText("너는 몇 번?", 96, H-165);
-  x.font='400 27px "DM Mono", monospace';
-  x.fillStyle="#5B5680";
-  x.fillText(location.host || "type-lab.example.com", 96, H-118);
+  x.fillStyle=A;x.fillRect(M,H-198,W-M*2,12);
+  x.fillStyle=INK;x.font='400 44px "Bagel Fat One", sans-serif';
+  x.fillText(`너는 몇 ${cur.meter.unit==="°C"?"도":"점"}?`,M,H-126);
+  x.fillStyle=SOFT;x.font='400 26px "DM Mono", monospace';
+  x.textAlign="right";x.fillText(location.host||"type-lab.example.com",W-M,H-126);
+  x.textAlign="left";
 }
 
 function wrap(x,text,left,top,maxW,lh){
-  let line="", y=top;
+  let line="",y=top;
   for(const ch of text){
-    if(x.measureText(line+ch).width>maxW && line){ x.fillText(line,left,y); line=ch; y+=lh; }
+    if(x.measureText(line+ch).width>maxW&&line){x.fillText(line,left,y);line=ch;y+=lh}
     else line+=ch;
   }
-  if(line){ x.fillText(line,left,y); y+=lh; }
+  if(line){x.fillText(line,left,y);y+=lh}
   return y;
 }
 
-/* ══ 저장 / 공유 ══ */
-function posterBlob(){
-  return new Promise(res=>$("poster").toBlob(res,"image/png"));
-}
+function posterBlob(){return new Promise(res=>$("poster").toBlob(res,"image/png"))}
 
-$("btnSave").addEventListener("click", async ()=>{
-  const b=await posterBlob(); if(!b) return toast("이미지를 만들지 못했습니다.");
+$("btnSave").addEventListener("click",async()=>{
+  const b=await posterBlob();if(!b)return toast("이미지를 만들지 못했습니다.");
   const a=document.createElement("a");
   a.href=URL.createObjectURL(b);
-  a.download=`유형연구소_${cur.id}.png`;
-  a.click(); URL.revokeObjectURL(a.href);
+  a.download=`유형연구소_${cur.id}_${score}.png`;
+  a.click();URL.revokeObjectURL(a.href);
   toast("포스터를 저장했습니다.");
 });
 
-$("btnShare").addEventListener("click", async ()=>{
-  const b=await posterBlob(); if(!b) return toast("이미지를 만들지 못했습니다.");
-  const file=new File([b],"type.png",{type:"image/png"});
-  if(navigator.canShare && navigator.canShare({files:[file]})){
-    try{ await navigator.share({files:[file], text:`${cur.title} 결과 나왔다`}); }
-    catch(e){ if(e.name!=="AbortError") toast("공유를 완료하지 못했습니다."); }
+$("btnShare").addEventListener("click",async()=>{
+  const b=await posterBlob();if(!b)return toast("이미지를 만들지 못했습니다.");
+  const f=new File([b],"type.png",{type:"image/png"});
+  if(navigator.canShare&&navigator.canShare({files:[f]})){
+    try{await navigator.share({files:[f],text:`${cur.meter.label} ${score}${cur.meter.unit} 나왔다`})}
+    catch(e){if(e.name!=="AbortError")toast("공유를 완료하지 못했습니다.")}
   }else{
-    try{
-      await navigator.clipboard.writeText(location.href);
-      toast("이 기기는 이미지 공유를 지원하지 않아 링크를 복사했습니다.");
-    }catch(e){ toast("저장 버튼으로 이미지를 받아 공유해 주세요."); }
+    try{await navigator.clipboard.writeText(location.href);toast("이 기기는 이미지 공유를 지원하지 않아 링크를 복사했습니다.")}
+    catch(e){toast("저장 버튼으로 이미지를 받아 공유해 주세요.")}
   }
 });
 
-$("btnAgain").addEventListener("click",()=>{ document.title="유형연구소 — 오늘의 나를 인쇄합니다"; show("home"); });
+$("btnAgain").addEventListener("click",()=>{
+  document.title="유형연구소 — 오늘의 나를 인쇄합니다";
+  $("sFill").style.width="0";show("home");
+});
 $("btnBack").addEventListener("click",()=>show("home"));
 
-/* ══ 광고 ══ */
 function pushAds(){
   document.querySelectorAll("#result ins.adsbygoogle").forEach(el=>{
-    if(el.dataset.done) return;
-    el.dataset.done="1";
-    try{ (window.adsbygoogle=window.adsbygoogle||[]).push({}); }catch(e){}
+    if(el.dataset.done)return;el.dataset.done="1";
+    try{(window.adsbygoogle=window.adsbygoogle||[]).push({})}catch(e){}
   });
 }
 
 drawRack();
 document.querySelectorAll("#home ins.adsbygoogle").forEach(()=>{
-  try{ (window.adsbygoogle=window.adsbygoogle||[]).push({}); }catch(e){}
+  try{(window.adsbygoogle=window.adsbygoogle||[]).push({})}catch(e){}
 });
 </script>
 </body>
